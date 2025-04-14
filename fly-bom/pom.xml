@@ -12,13 +12,15 @@
     <properties>
         <reversion>1.0.0-SNAPSHOT</reversion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <flink.version>2.0.0</flink.version>
         <target.java.version>17</target.java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <maven.compiler.source>${target.java.version}</maven.compiler.source>
         <maven.compiler.target>${target.java.version}</maven.compiler.target>
+        <spring-boot.version>3.2.12</spring-boot.version>
+        <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
+        <spring-cloud.version>2023.0.5</spring-cloud.version>
+        <flink.version>2.0.0</flink.version>
         <log4j.version>2.24.1</log4j.version>
         <fastjson.version>2.0.57</fastjson.version>
         <lombok.version>1.18.38</lombok.version>
@@ -27,6 +29,23 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- spring-boot-dependencies -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- spring-cloud-dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
