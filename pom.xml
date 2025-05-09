@@ -22,6 +22,9 @@
         <module>fly-bom</module>
         <module>fly-flink</module>
         <module>fly-commons</module>
+        <module>fly-account</module>
+        <module>fly-storage</module>
+        <module>fly-order</module>
     </modules>
 
 

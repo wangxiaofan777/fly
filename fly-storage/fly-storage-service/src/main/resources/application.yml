@@ -1,0 +1,4 @@
+server:
+  port: 8902
+  servlet:
+    context-path: /storage
