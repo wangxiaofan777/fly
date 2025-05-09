@@ -24,7 +24,54 @@
         </dependency>
 
         <!-- API -->
+        <dependency>
+            <groupId>com.wxf.fly</groupId>
+            <artifactId>sky-account-api</artifactId>
+            <version>${reversion}</version>
+        </dependency>
 
+        <!-- order -->
+        <dependency>
+            <groupId>com.wxf.fly</groupId>
+            <artifactId>fly-order-api</artifactId>
+            <version>${reversion}</version>
+        </dependency>
+
+        <!-- storage -->
+        <dependency>
+            <groupId>com.wxf.fly</groupId>
+            <artifactId>fly-storage-api</artifactId>
+            <version>${reversion}</version>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- springboot 打包插件 -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 </project>
