@@ -14,7 +14,21 @@ services:
     networks:
       - hadoop_hadoop_network
 
-
+  nacos-server:
+    image: nacos:2.3.2
+    hostname: nacos-server
+    ports:
+      - "8848:8848"
+    environment:
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=127.0.0.1
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_DB_NAME=nacos-server
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=root
+      - MYSQL_DATABASE_NUM=1
+      - DB_POOL_CONNECTION_TIMEOUT=30000
 
   seata-server:
     image: seataio/seata-server:latest
