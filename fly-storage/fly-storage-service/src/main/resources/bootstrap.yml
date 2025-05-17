@@ -1,0 +1,30 @@
+server:
+  port: 8902
+  servlet:
+    context-path: /storage
+
+
+spring:
+  application:
+    name: storage-service
+  cloud:
+    nacos:
+      config:
+        enabled: true
+        cluster-name: sky-cluster
+        namespace: 7641333c-85f4-4403-8ec1-8590a3ce6e6b
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        import-check:
+          enabled: false
+      discovery:
+        enabled: true
+        cluster-name: ${spring.cloud.nacos.config.cluster-name}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        username: ${spring.cloud.nacos.config.username}
+        password: ${spring.cloud.nacos.config.password}
+  config:
+    import:
+      - optional:nacos:sky-storage.yaml

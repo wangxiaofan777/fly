@@ -51,6 +51,28 @@
             <version>${reversion}</version>
         </dependency>
 
+
+        <!-- Spring Cloud-->
+        <!-- discovery -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- config -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- spring-cloud-starter-bootstrap -->
+        <!--https://www.jianshu.com/p/1d13e174b893-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+
+
         <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
