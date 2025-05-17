@@ -8,3 +8,5 @@
 * https://java2ai.com/docs/1.0.0-M6.1/concepts/?spm=4347728f.33449ac1.0.0.6f68556b27wBu1
 * https://github.com/nacos-group/nacos-docker/blob/master/example/standalone-mysql.yaml
 * https://sca.aliyun.com/docs/2023/overview/version-explain/?spm=5238cd80.47ee59c.0.0.189fcd36D6yMOA
+* https://github.com/apache/incubator-seata/tree/develop/script/server/db
+* https://seata.apache.org/zh-cn/docs/ops/deploy-by-docker-compose/#nacos-db
