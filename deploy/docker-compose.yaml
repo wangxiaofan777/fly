@@ -17,6 +17,8 @@ services:
   nacos-server:
     image: nacos/nacos-server:v2.3.2
     hostname: nacos-server
+    depends_on:
+      - mysql8
     ports:
       - "8848:8848"
       - "9848:9848"
@@ -42,6 +44,9 @@ services:
   seata-server:
     image: seataio/seata-server:latest
     hostname: seata-server
+    depends_on:
+      - nacos-server
+      - mysql8
     ports:
       - "8091:8091"
       - "7091:7091"
