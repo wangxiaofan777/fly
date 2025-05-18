@@ -1,4 +1,4 @@
-version: "3"
+version: '3.8'
 services:
   mysql8:
     image: mysql:8.0.30
@@ -40,7 +40,7 @@ services:
     networks:
       - hadoop_hadoop_network
 
-# https://seata.apache.org/zh-cn/docs/ops/deploy-by-docker-compose/#nacos-db
+  # https://seata.apache.org/zh-cn/docs/ops/deploy-by-docker-compose/#nacos-db
   seata-server:
     image: seataio/seata-server:latest
     hostname: seata-server
@@ -63,6 +63,57 @@ services:
       - "./config/seata-server/application.yml:/seata-server/resources/application.yml"
     networks:
       - hadoop_hadoop_network
+
+  rocketmq-dashboard:
+    image: apacherocketmq/rocketmq-dashboard:latest
+    hostname: rocketmq-dashboard
+    container_name: rocketmq-dashboard
+    ports:
+      - "8089:8080"
+    environment:
+      - JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876
+    networks:
+      - hadoop_hadoop_network
+
+  namesrv:
+    image: apache/rocketmq:5.3.2
+    container_name: rmqnamesrv
+    ports:
+      - 9876:9876
+    networks:
+      - hadoop_hadoop_network
+    command: sh mqnamesrv
+  broker:
+    image: apache/rocketmq:5.3.2
+    container_name: rmqbroker
+    ports:
+      - 10909:10909
+      - 10911:10911
+      - 10912:10912
+    environment:
+      - NAMESRV_ADDR=rmqnamesrv:9876
+    depends_on:
+      - namesrv
+    networks:
+      - hadoop_hadoop_network
+    command: sh mqbroker
+  proxy:
+    image: apache/rocketmq:5.3.2
+    container_name: rmqproxy
+    networks:
+      - hadoop_hadoop_network
+    depends_on:
+      - broker
+      - namesrv
+    ports:
+      - 8080:8080
+      - 8081:8081
+    restart: on-failure
+    environment:
+      - NAMESRV_ADDR=rmqnamesrv:9876
+    command: sh mqproxy
+
+
 
 volumes:
   esdata:
