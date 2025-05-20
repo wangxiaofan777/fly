@@ -52,7 +52,7 @@ services:
       - "7091:7091"
     environment:
       - SEATA_PORT=8091
-      - STORE_MODE=file
+#      - STORE_MODE=file
       # 以SEATA_IP作为host注册seata server。
       # 这里使用宿主机的IP，注册到容器内的IP地址如果是容器内的话，外部是无法访问的。
       - SEATA_IP=192.168.201.216
