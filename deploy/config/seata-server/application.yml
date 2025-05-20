@@ -32,6 +32,7 @@ seata:
       username: nacos
       password: nacos
       data-id: seataServer.properties
+      cluster: default
 
   registry:
     # support: nacos, eureka, redis, zk, consul, etcd3, sofa

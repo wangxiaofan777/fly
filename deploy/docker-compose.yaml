@@ -42,7 +42,7 @@ services:
 
   # https://seata.apache.org/zh-cn/docs/ops/deploy-by-docker-compose/#nacos-db
   seata-server:
-    image: seataio/seata-server:latest
+    image: seataio/seata-server:2.0.0
     hostname: seata-server
     depends_on:
       - nacos-server
@@ -53,8 +53,9 @@ services:
     environment:
       - SEATA_PORT=8091
       - STORE_MODE=file
-      # 以SEATA_IP作为host注册seata server
-      - SEATA_IP=127.0.0.1
+      # 以SEATA_IP作为host注册seata server。
+      # 这里使用宿主机的IP，注册到容器内的IP地址如果是容器内的话，外部是无法访问的。
+      - SEATA_IP=192.168.201.216
     volumes:
       - "/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime"        #设置系统时区
       - "/usr/share/zoneinfo/Asia/Shanghai:/etc/timezone"  #设置时区
@@ -126,3 +127,4 @@ volumes:
 # 连接外部网络
 networks:
   hadoop_hadoop_network:
+    external: true
