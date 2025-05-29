@@ -33,5 +33,12 @@ public class CglibProxyTest {
         // 创建代理
         MyInterfaceImpl myInterface = (MyInterfaceImpl) enhancer.create();
         myInterface.sayHello();
+
+        // 可以代理protected方法
+        myInterface.sayHelloProtected();
+
+        // 无法代码private方法，外部无法访问
+//        myInterface.sayHelloPrivate();
+
     }
 }
