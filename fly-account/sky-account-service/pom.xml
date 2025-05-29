@@ -88,6 +88,14 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
 
+
+        <!-- cglib -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

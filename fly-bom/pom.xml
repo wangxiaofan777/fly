@@ -25,6 +25,7 @@
         <fastjson.version>2.0.57</fastjson.version>
         <lombok.version>1.18.38</lombok.version>
         <mysql.version>8.0.33</mysql.version>
+        <cglib.version>3.3.0</cglib.version>
 
     </properties>
 
@@ -166,6 +167,12 @@
                 <version>${lombok.version}</version>
             </dependency>
 
+            <!-- cglib -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
