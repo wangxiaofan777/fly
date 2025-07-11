@@ -16,6 +16,9 @@ public class Main {
 //        2025-07-11T15:03:46.985629200+08:00[Asia/Shanghai]
         System.out.println(ZonedDateTime.now());
 
+        // 2025-07-12T15:22:36.126827700+08:00[Asia/Shanghai]
+        System.out.println(ZonedDateTime.now().plusDays(1));
+
 //        2025-07-11T07:03:46.985629200Z[UTC]
         System.out.println(ZonedDateTime.now().withZoneSameInstant(ZoneId.of("UTC")));
 
