@@ -4,7 +4,7 @@
 
     <groupId>com.wxf.fly</groupId>
     <artifactId>fly</artifactId>
-    <version>${reversion}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>fly</name>
